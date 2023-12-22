@@ -1,0 +1,10 @@
+#line 1 "/home/lih/from_git/DashBoard/.vscode/arduino.json"
+{
+    "port": "/dev/ttyUSB0",
+    "configuration": "cpu=atmega328old",
+    "board": "arduino:avr:nano",
+    "programmer": "arduinoisp",
+    "postbuild": "build",
+    "sketch": "DashBoard.ino",
+    "output": "build"
+}
