@@ -1,0 +1,6 @@
+publish_type: mem_usage
+# avaliable choice: 
+#   cpu_usage 
+#   mem_usage
+
+baud_rate: 57600
