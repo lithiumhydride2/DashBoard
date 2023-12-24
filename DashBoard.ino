@@ -1,9 +1,11 @@
-#include <Arduino.h>
-#define out_pin PIN2
+#include "led.h"
+#define out_pin D1
+
+LED led(D4, D3, D2);
 
 void setup()
 {
-    Serial.begin(9600);
+    Serial.begin(115200);
     pinMode(out_pin, OUTPUT);
     while (!Serial.available())
     {
@@ -14,10 +16,14 @@ void setup()
 
 void loop()
 {
+    long val = 0;
     while (Serial.available())
     {
-        Serial.println("hello world");
-        int val = Serial.parseInt();
-        analogWrite(out_pin, val);
+        val = Serial.parseInt();
+        if (val != 0)
+        {
+            analogWrite(out_pin, val);
+            led.set_val(val);
+        }
     }
 }

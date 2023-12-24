@@ -2,14 +2,12 @@
 # 2 "/home/lih/from_git/DashBoard/DashBoard.ino" 2
 
 
+LED led(D4, D3, D2);
+
 void setup()
 {
-    Serial.begin(9600);
-    pinMode(
-# 7 "/home/lih/from_git/DashBoard/DashBoard.ino" 3
-           2
-# 7 "/home/lih/from_git/DashBoard/DashBoard.ino"
-                  , 0x1);
+    Serial.begin(115200);
+    pinMode(D1, 0x01);
     while (!Serial.available())
     {
         delay(100);
@@ -19,14 +17,14 @@ void setup()
 
 void loop()
 {
+    long val = 0;
     while (Serial.available())
     {
-        Serial.println("hello world");
-        int val = Serial.parseInt();
-        analogWrite(
-# 21 "/home/lih/from_git/DashBoard/DashBoard.ino" 3
-                   2
-# 21 "/home/lih/from_git/DashBoard/DashBoard.ino"
-                          , val);
+        val = Serial.parseInt();
+        if (val != 0)
+        {
+            analogWrite(D1, val);
+            led.set_val(val);
+        }
     }
 }
