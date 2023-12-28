@@ -1,7 +1,0 @@
-publish_type: mem_usage
-# avaliable choice: 
-#   cpu_usage 
-#   cpu_freq
-#   mem_usage
-
-baud_rate: 115200
