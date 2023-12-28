@@ -1,4 +1,4 @@
-./.vscode/
 # ignore
-./build/
-./ESP8266FS/
+build/*
+ESP8266FS/*
+.vscode/*

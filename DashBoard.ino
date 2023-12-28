@@ -27,7 +27,9 @@ void setup()
             delay(500);
             Serial.print(".");
         }
-        // Serial.p
+        Serial.println("WiFi connect!");
+        Serial.print("IP address is:");
+        Serial.println(WiFi.localIP());
     }
     pinMode(out_pin, OUTPUT);
 }
