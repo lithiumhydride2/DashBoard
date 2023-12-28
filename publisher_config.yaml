@@ -1,7 +1,10 @@
-publish_type: mem_usage
+publish_type: cpu_freq
 # avaliable choice: 
 #   cpu_usage 
 #   cpu_freq
 #   mem_usage
 
-baud_rate: 115200
+baud_rate: 9600
+
+use_uart: false
+# if true, use udp
