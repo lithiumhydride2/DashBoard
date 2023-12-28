@@ -1,5 +1,5 @@
-# 1 "/home/lih/from_git/DashBoard/DashBoard.ino"
-# 2 "/home/lih/from_git/DashBoard/DashBoard.ino" 2
+# 1 "D:\\FromGit\\DashBoard\\DashBoard.ino"
+# 2 "D:\\FromGit\\DashBoard\\DashBoard.ino" 2
 
 
 LED led(D4, D3, D2);

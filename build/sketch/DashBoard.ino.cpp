@@ -1,15 +1,15 @@
 #include <Arduino.h>
-#line 1 "/home/lih/from_git/DashBoard/DashBoard.ino"
+#line 1 "D:\\FromGit\\DashBoard\\DashBoard.ino"
 #include "led.h"
 #define out_pin D1
 
 LED led(D4, D3, D2);
 
-#line 6 "/home/lih/from_git/DashBoard/DashBoard.ino"
+#line 6 "D:\\FromGit\\DashBoard\\DashBoard.ino"
 void setup();
-#line 17 "/home/lih/from_git/DashBoard/DashBoard.ino"
+#line 17 "D:\\FromGit\\DashBoard\\DashBoard.ino"
 void loop();
-#line 6 "/home/lih/from_git/DashBoard/DashBoard.ino"
+#line 6 "D:\\FromGit\\DashBoard\\DashBoard.ino"
 void setup()
 {
     Serial.begin(115200);

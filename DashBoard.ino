@@ -6,12 +6,13 @@ LED led(D4, D3, D2);
 void setup()
 {
     Serial.begin(115200);
-    pinMode(out_pin, OUTPUT);
     while (!Serial.available())
     {
         delay(100);
     }
     Serial.println("Serial connect!");
+
+    pinMode(out_pin, OUTPUT);
 }
 
 void loop()

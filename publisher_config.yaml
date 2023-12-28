@@ -1,4 +1,4 @@
-publish_type: cpu_freq
+publish_type: mem_usage
 # avaliable choice: 
 #   cpu_usage 
 #   cpu_freq

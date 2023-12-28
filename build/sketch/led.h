@@ -1,4 +1,4 @@
-#line 1 "/home/lih/from_git/DashBoard/led.h"
+#line 1 "D:\\FromGit\\DashBoard\\led.h"
 #include <Arduino.h>
 
 class LED
