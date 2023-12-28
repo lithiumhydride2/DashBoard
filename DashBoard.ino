@@ -27,7 +27,7 @@ void setup()
             delay(500);
             Serial.print(".");
         }
-        Serial.p
+        // Serial.p
     }
     pinMode(out_pin, OUTPUT);
 }
