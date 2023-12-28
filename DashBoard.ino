@@ -1,3 +1,4 @@
+#include <ESP8266WiFi.h>
 #include "led.h"
 #define out_pin D1
 
