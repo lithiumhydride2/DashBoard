@@ -1,7 +1,9 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266WiFiMulti.h>
+#include <WiFiUdp.h>
 
 #include "led.h"
+
 #define out_pin D1
 #define USE_UART false
 LED led(D4, D3, D2);
@@ -10,11 +12,13 @@ LED led(D4, D3, D2);
 ESP8266WiFiMulti wifimulti;
 const char *ssid_1 = "Com_wifi_backup";
 const char *passwd_1 = "comb888comb";
-const char *ssid_2 = "comb_wifi";
-const char *passwd_2 = "comb888comb";
 
+// udp
+WiFiUDP udp;
+uint16 udp_port = 8266;
 // func
-int _get_val(int);
+int _get_val();
+
 void setup()
 {
     // serial
@@ -28,29 +32,36 @@ void setup()
         }
         Serial.println("Serial connect!");
     }
-    // Wifi
-    wifimulti.addAP(ssid_1, passwd_1);
-    wifimulti.addAP(ssid_2, passwd_2);
-
-    while (wifimulti.run() != WL_CONNECTED)
+    else
     {
-        delay(500);
-        Serial.print(".");
+        // Wifi
+        wifimulti.addAP(ssid_1, passwd_1);
+        while (wifimulti.run() != WL_CONNECTED)
+        {
+            delay(500);
+            Serial.print(".");
+        }
+        Serial.print("WiFi connect to:");
+        Serial.println(WiFi.SSID());
+        Serial.print("IP address is: ");
+        Serial.println(WiFi.localIP());
+        // UDP
+        if (udp.begin(udp_port))
+        {
+            Serial.print("UDP connect to port: ");
+            Serial.println(udp_port);
+        }
     }
-    Serial.print("WiFi connect to:");
-    Serial.println(WiFi.SSID());
-    Serial.print("IP address is: ");
-    Serial.println(WiFi.localIP());
 
     pinMode(out_pin, OUTPUT);
 }
 
 void loop()
 {
-    long val = 0;
+    int val = 0;
     while (Serial.available())
     {
-        val = Serial.parseInt();
+        val = _get_val();
         if (val != 0)
         {
             analogWrite(out_pin, val);
@@ -59,11 +70,15 @@ void loop()
     }
 }
 
-int _get_val(int index = 0)
+int _get_val()
 {
     if (USE_UART)
     {
         return Serial.parseInt();
+    }
+    else
+    {
+        return udp.parseInt();
     }
 
     // udp
